@@ -24,7 +24,10 @@
     "axios": "^0.21.4",
     "jsonwebtoken": "^8.5.1",
     "module-alias": "^2.2.3",
-    "rimraf": "^5.0.5"
+    "pg": "^8.7.1",
+    "reflect-metadata": "^0.1.13",
+    "rimraf": "^5.0.5",
+    "typeorm": "0.2.29"
   },
   "devDependencies": {
     "@types/axios": "^0.14.0",
@@ -41,6 +44,7 @@
     "jest": "^27.1.1",
     "jest-mock-extended": "^2.0.1",
     "lint-staged": "^11.1.2",
+    "pg-mem": "^1.9.17",
     "ts-jest": "^27.0.5",
     "typescript": "^4.4.2"
   }
