@@ -7,15 +7,20 @@ import {
   serverError,
   unauthorized
 } from '@/application/helpers'
-import { RequiredStringValidator } from '../validation'
+import {
+  RequiredStringValidator,
+  ValidationComposite
+} from '@/application/validation'
 
 type HttpRequest = {
   token: string
 }
 
-type Model = Error | {
-  accessToken: string
-}
+type Model =
+  | Error
+  | {
+    accessToken: string
+  }
 
 export class FacebookLoginController {
   constructor (
@@ -28,7 +33,9 @@ export class FacebookLoginController {
       if (error !== undefined) {
         return badRequest(error)
       }
-      const accessToken = await this.facebookAuthentication.perform({ token: httpRequest.token })
+      const accessToken = await this.facebookAuthentication.perform({
+        token: httpRequest.token
+      })
       if (accessToken instanceof AccessToken) {
         return ok({
           accessToken: accessToken.value
@@ -42,7 +49,8 @@ export class FacebookLoginController {
   }
 
   private validate (httpRequest: HttpRequest): Error | undefined {
-    const validator = new RequiredStringValidator(httpRequest.token, 'token')
-    return validator.validate()
+    return new ValidationComposite([
+      new RequiredStringValidator(httpRequest.token, 'token')
+    ]).validate()
   }
 }
