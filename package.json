@@ -41,6 +41,7 @@
     "@types/jsonwebtoken": "^8.5.5",
     "@types/module-alias": "^2.0.4",
     "@types/node": "^20.11.30",
+    "@types/supertest": "^2.0.11",
     "@typescript-eslint/eslint-plugin": "^4.31.0",
     "eslint": "^7.32.0",
     "eslint-config-standard-with-typescript": "^21.0.1",
@@ -51,6 +52,7 @@
     "jest-mock-extended": "^2.0.1",
     "lint-staged": "^11.1.2",
     "pg-mem": "^1.9.17",
+    "supertest": "^6.1.6",
     "ts-jest": "^27.0.5",
     "typescript": "^4.4.2"
   }
